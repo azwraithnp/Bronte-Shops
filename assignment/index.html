@@ -1,0 +1,263 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+       
+     <link rel="stylesheet" href="assets/css/plugins.css" />
+        <link rel="stylesheet" href="assets/css/roboto-webfont.css" />
+
+        <!--Theme custom css -->
+           <link rel="stylesheet" href="assets/css/style.css">
+
+        <!--Theme Responsive css-->
+<link rel="stylesheet" href="assets/css/responsive.css" />
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+
+
+  <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	</head>
+
+<body>
+<?php
+include('connection.php');
+$fname = $_POST['fname'];
+$lname = $_POSt['lname'];
+$pass = md5($_POST['pass']);
+$email = $_POST['email'];
+$age = $_POST['age'];
+
+$sqlch = "SELECT * from user WHERE email='$user'";
+$qrych = mysqli_query($conn, $sqlch);
+$countch = mysqli_num_rows($qrych);
+
+$sqlemail = "SELECT * from user WHERE email='$email'";
+$sqlemail = mysqli_query($conn,$sqlemail);
+$countemail = mysqli_num_rows($sqlemail);
+
+if($countch<=0)
+{
+$sql= "INSERT INTO user(fname, lname, age, email, password, isAdmin) VALUES ('fname', '$lname', '$age', '$email', '$password', 0)";
+$result = mysqli_query($conn, $sql);
+if($result)
+{
+	echo "Success";
+}
+else
+{
+	echo "Error";
+}
+}
+else
+{
+	echo "User Already Exits";	
+}
+?>
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img height=60 width=110 src="assets/images/logo.png" alt="Logo" /></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#home">Home</a></li>
+                        <li><a href="#features">FAVORITES</a></li>
+                        <li><a href="#events">EVENTS</a></li>
+                        <li><a href="#teams">TEAMS</a></li>
+                        <li class="login"><a href="#">Sign In</a></li>
+                    </ul>
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        
+                <header id="home" class="home">
+            <div class="overlay-fluid-block">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="home-wrapper">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="home-content">
+
+                                    <h1>Become a part of the best eSports platform!</h1>
+                                    <p class="description">eSports Now is an esports event management and engagement platform that helps you, fellow gaming enthusiasts with engaging in events and understand eSports better. Our goal is to be the ultimate, all in one destination for our users’ esports event needs.</p>
+
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                                            <div class="home-contact">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Enter your email address">
+                                                    <input type ="submit" class="form-control" value="Join Now!">
+
+                                                </div><!-- /input-group -->
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>			
+            </div>
+        </header>
+<div class="main">
+		<a name="events"></a><div class="container">
+			<div class="heading text-center" id="head">
+				<img class="dividerline" src="assets/images/sep.png" alt="">
+				<h2>Events Gallery</h2>
+				<img class="dividerline" src="assets/images/sep.png" alt="">
+			</div>
+
+
+<div class="grid">
+  	<div class="box a">
+  		<figure>
+			<img src="assets/images/galaxy.jpg" alt=""/>
+			<figcaption><h3>Galaxy Battles 2018</h3><p>The prize pool for the tournament is $1,000,000 USD and 1,500 Pro Circuit Points.</p></figcaption>
+		</figure>
+	</div>
+  	<div class="box b">
+    	<figure>
+			<img src="assets/images/pgl.jpg" alt=""/>
+			<figcaption><h3>PGL</h3><p>The tournament will be held in Bucharest, from October 19th until the 22nd. As a Minor, the 8 participating teams will 			fight for a $300,000 USD prize pool
+            </p></figcaption>
+		</figure>
+    </div>
+  	<div class="box c">
+    	<figure>
+			<img src="assets/images/eslone.jpg" alt=""/>
+			<figcaption><h3>ESL One Katowice 2018</h3><p>ESL One will be hosting Poland's first ever Dota 2 Major: 16 teams from across the globe will fight for a part of the $1,000,000 USD prize pool and 1,500 qualifying points</p></figcaption>
+			</figure>
+    </div>
+  	<div class="box d">
+    		<figure>
+									<img src="assets/images/asia.png" alt=""/>
+									<figcaption><h3>Dota 2 Asia Championships/2018</h3><p>DAC is a tournament organized by Perfect World and Mars Media (ex-MarsTV) with the location of the LAN finals being in Shanghai, China, a city in the East</p></figcaption>
+								</figure>
+    </div>
+  	<div class="box e">
+    <figure>
+									<img src="assets/images/epicenter.png" alt=""/>
+									<figcaption><h3>Epicenter 2018</h3><p>The second installment of EPICENTER is a tournament by Epic Esports Events that was held in Moscow</p></figcaption>
+								</figure>
+    </div>
+  	<div class="box f">
+    <figure>
+									<img src="assets/images/genting.jpg" alt=""/>
+									<figcaption><h3>ESL One Genting 2018</h3><p>ESL One is returning to the Arena of Stars with a prize pool of $400,000 USD and 400 qualifying points up for grabs</p></figcaption>
+								</figure>
+						
+    </div>
+    
+    	<div class="box g">
+    <figure>
+									<img src="assets/images/mdl.jpeg" alt=""/>
+									<figcaption><h3>Mars Media 2018</h3><p>Mars Media will be hosting the sixth season of the Mars Dota 2 League where Eight teams will fight for $300,000 USD and 300 Qualifying Points for The International 2018.</p></figcaption>
+								</figure>
+						
+    </div>
+    
+    	<div class="box h">
+    <figure>
+									<img src="assets/images/international.jpg" alt=""/>
+									<figcaption><h3>The International 2018</h3><p>The 2017 - 2018 competitive season takes new shape, as teams face off in tournaments around the globe on the Dota Pro Circuit that determine the eight direct invites to The International.</p></figcaption>
+								</figure>
+						
+    </div>
+</div>
+</div>
+</div>
+<div id="container">
+				<div class="heading text-center" id="head">
+				<img class="dividerline" src="assets/images/sep.png" alt="">
+				<h2>Notable Players of 2017</h2>
+				<img class="dividerline" src="assets/images/sep.png" alt="">
+			</div>
+ <div class="photobanner">
+    <a href="http://wiki.teamliquid.net/dota2/SumaiL"><img class="first"height="250" width="250" class="circle" src="assets/images/sumail.jpg" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/Arteezy"><img height="250" width="250" class="circle" src="assets/images/rtz.png" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/JerAx"><img height="250" width="250" class="circle" src="assets/images/jerax.jpg" alt="Natural" /></a>
+   	<a href="http://wiki.teamliquid.net/dota2/N0tail"><img height="250" width="250" class="circle" src="assets/images/notail.jpg" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/BurNIng"><img height="250" width="250" class="circle" src="assets/images/burning.jpg" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/KuroKy"><img height="250" width="250" class="circle" src="assets/images/kuro.jpg" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/Miracle-"><img height="250" width="250" class="circle" src="assets/images/miracle.png" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/GH"><img height="250" width="250" class="circle" src="assets/images/gh.jpg" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/MATUMBAMAN"><img height="250" width="250" class="circle" src="assets/images/matumba.jpg" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/Sccc"><img height="250" width="250" class="circle" src="assets/images/sccc.png" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/Solo"><img height="250" width="250" class="circle" src="assets/images/solo.png" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/MidOne"><img height="250" width="250" class="circle" src="assets/images/midone.jpg" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/Puppey"><img height="250" width="250" class="circle" src="assets/images/puppey.jpg" alt="Natural" /></a>
+    <a href="http://wiki.teamliquid.net/dota2/Resolu"><img height="250" width="250" class="circle" src="assets/images/reso.jpg" alt="Natural" /></a>
+    
+    </div>
+    </div>
+<div id="wrapper">
+<div id="register" class="animate form">
+			<form  action="" autocomplete="on"> 
+					<div class="heading text-center" id="head">
+				<img class="dividerline" src="assets/images/sep.png" alt="">
+				<h2>Sign Up</h2>
+				<img class="dividerline" src="assets/images/sep.png" alt="">
+				</div>
+        		<p> 
+					<label for="fname" data-icon="u">Your first name</label>
+					<input id="fname" name="fname" required="required" type="text" placeholder="mysuperfirstname" />
+				</p>
+				<p> 
+					<label for="lname" data-icon="u" > Your last name</label>
+					<input id="lname" name="lname" required="required" type="text" placeholder="mysuperlastname"/> 
+				</p>
+				<p> 
+					<label for="email" data-icon="e">Your email </label>
+					<input id="email" name="email" required="required" type="email" placeholder="eg. mysupermail@mail.com"/>
+				</p>
+				<p> 
+					<label for="age" data-icon="p">Age Range </label>
+					<select placeholder="select">
+ 	 					<option value="10s">10-15</option>
+  						<option value="15s">15-20</option>
+  						<option value="20s">20-25</option>
+  						<option value="25s">25-30</option>
+                        <option value="30s">30-35</option>
+                        <option value="35s">35-40</option>
+                        <option value="40s">40+</option>
+					</select>
+				</p>
+            	<p> 
+					<label for="pass" data-icon="p">Your password </label>
+					<input id="pass" name="pass" required="required" type="password" placeholder="eg. X8df!90EO"/>
+				</p>
+				<p> 
+					<label for="passcon" data-icon="p">Confirm your password </label>
+					<input id="passcon" name="passcon" required="required" type="password" placeholder="eg. X8df!90EO"/>
+				</p>
+			
+
+				
+                <p class="signin button"> 
+					<input type="submit" value="Sign up"/> 
+				</p>
+			</form>
+		</div>
+</div>		    
+
+</body>
+</html>
+

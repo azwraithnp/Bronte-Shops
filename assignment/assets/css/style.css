@@ -1,0 +1,494 @@
+
+/*
+Author: XpeedStudio
+Author URI: http://themeforest.net/user/XpeedStudio/portfolio
+*/
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+html,
+body {
+    font-size: 15px;
+    color: #565656;
+    width: 100%;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: 'robotolight';
+    font-weight: 300;
+}
+
+#sort
+{
+	background-color:#138971;
+	width:200px;
+}
+
+#head{
+	margin-top:50px;
+}
+
+.containersearch
+{
+	margin-top:20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.containersearch div
+{
+	height: 50px;
+  width: 250px;
+  display: inline-block;	
+}
+
+.btn-group
+{
+	margin-left:150px;
+}
+
+.searchbox
+{
+	margin-left:250px;
+}
+
+.search {
+	position:absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+h1,
+h2,
+h3 {
+    /*font-family: 'Lane', sans-serif;*/
+    font-weight: 300;
+    margin: 0;
+}
+h1 {
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: 300;
+}
+p {
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+}
+p:last-child {
+    margin-bottom: 0px;
+}
+.overlay-fluid-block {
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+
+/*For Menu Style*/
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius:0;
+    padding-top:20px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #138971;
+    background-color:transparent;
+}
+
+
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+    font-size:14px;
+    font-weight:600;
+	text-transform:uppercase;
+}
+.navbar-default .navbar-nav li a :hover{
+    color: #138971;
+}
+.navbar-default .collapse .login a{
+    color: #138971;
+    border: 1px solid #82ca9c;
+    border-radius: 20px;
+    padding: 4px 30px;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 30px;
+    display:inline-block;
+    overflow:hidden;
+}
+.navbar-default .collapse .login:hover a{
+    background-color: #138971;
+    color:#fff;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: #138971;
+    background-color: transparent;
+}
+.navbar-brand{
+	margin-top:-20px;	
+}
+
+
+/*For Home Section*/
+.home{
+    background:url(../images/homebg.jpg) no-repeat center center;
+    color:#000;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+}
+.home-wrapper{
+    padding:180px 0px;
+    overflow:hidden;
+}
+.home-content h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom: 30px;
+    color: #fff;
+}
+.home-content p{
+    margin-bottom: 30px;
+    color: #fff;
+}
+.home-content .home-contact{
+    margin-top: 90px;
+}
+
+
+
+.home-contact .input-group{display: block;}
+.home-content .input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 65%;
+    margin-bottom: 0;
+    height: 60px;
+
+}
+.home-content .home-contact input[type="text"]{
+    color:#138971;
+}
+.searchbox input[type="submit"]
+{
+	   width:35%;
+    background:#138971;
+    color:#fff;
+	border: 0px;
+}	
+.home-content .home-contact input[type="submit"]{
+    display:inline-block;
+    width:35%;
+    background:#138971;
+    color:#fff;
+	border: 0px;
+}
+.home-content .home-contact input[type="submit"]:hover{
+	background-color: rgba(19,137,113, 0.8);
+}
+.home-contact p{
+    margin-top: 20px;
+    color:#000;
+    font-size:15px;
+}
+.form-control {
+    border: 1px solid #DEDEDE;
+    height:45px;
+    border-radius: 0px;
+    margin-right: -3px;
+}
+.head_title {
+    margin-bottom: 40px;
+}
+.main {
+		background:url('../images/intcover.png');
+	background-size:cover;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+
+}
+
+.container h2
+{
+	color:#fff;
+};
+
+
+.head_title p {
+    max-width: 55%;
+    margin: 10px auto;
+    padding-bottom: 20px;
+}
+.description{
+	padding:10px;
+	background-color: rgba(19,137,113, 0.8);
+	gin-left: auto ;
+  	margin-right: auto ;
+}
+
+.grid {
+	margin-top:50px;
+  display: grid;
+  grid-template-columns: 270px 270px 270px 270px;
+  grid-gap: 5px;
+  color: #444;
+}
+
+
+.box figure {
+	margin:0;
+}
+.box figure img {
+	display:block;
+	width:100%;
+}
+.box figcaption h3 {
+	margin:0;
+	padding:0 0px 0;
+	color:#fff;
+	font-size:17px;
+	font-weight:600;
+}
+.box figcaption p {
+	margin-top:5px;
+	font-size: 13px;
+	color:#000;
+}
+
+.grid box {
+	width:25%;
+	float:left;
+	cursor:pointer;
+}
+.box figure {
+	padding:15px;
+	-webkit-transition:opacity 0.2s;
+	transition:opacity 0.2s;
+}
+.box:hover figure {
+	opacity:0.7;
+}
+.box figcaption {
+	background:#138971;
+	padding: 25px;
+}
+.circle
+{
+	border-radius:200px;
+}
+.photobanner
+{
+	margin-top:20px;
+	height: 233px;
+	width: 3550px;
+	margin-bottom: 80px;
+}
+.first {
+	border-radius:200px;
+	-webkit-animation: bannermove 30s linear infinite;
+	   -moz-animation: bannermove 30s linear infinite;
+	    -ms-animation: bannermove 30s linear infinite;
+	     -o-animation: bannermove 30s linear infinite;
+	        animation: bannermove 30s linear infinite;
+}
+
+#container {
+	width: 100%;
+	overflow: hidden;
+	background:url('../images/players.jpg');
+	background-size:cover;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+
+}
+
+#container h2{
+	color:#fff;
+}
+
+ .photobanner img {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.photobanner img:hover {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+	cursor: pointer; 
+
+	-webkit-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.2); 
+} 
+
+
+#wrapper p.button input{
+	width: 30%;
+	cursor: pointer;	
+	background: #138971;
+	padding: 8px 5px;
+	color: #fff;
+	font-size: 24px;	
+	border: 1px solid rgb(28, 108, 122);	
+	margin-bottom: 10px;	
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+	border-radius: 3px;	
+	box-shadow:
+		0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
+		0px 0px 0px 3px rgb(254, 254, 254),
+		0px 5px 3px 3px rgb(210, 210, 210);
+	transition: all 0.2s linear;
+}
+#wrapper p.button input:hover{
+	background: #22BAA0;
+}
+#wrapper p.button input:active,
+#wrapper p.button input:focus{
+	background: rgb(40, 137, 154);
+	position: relative;
+	top: 1px;
+	border: 1px solid rgb(12, 76, 87);	
+	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+
+
+::-webkit-input-placeholder  { 
+	color: rgb(190, 188, 188); 
+	font-style: italic;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder{ 
+	color: rgb(190, 188, 188);
+	font-style: italic;
+} 
+input {
+  outline: none;
+}
+
+#wrapper input:not([type="checkbox"]), select{
+	width: 92%;
+	margin-top: 4px;
+	padding: 10px 5px 10px 32px;	
+	border: 1px solid rgb(178, 178, 178);
+	box-sizing : content-box;
+	border-radius: 3px;
+	box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+	transition: all 0.2s linear;
+}
+#wrapper input:not([type="checkbox"]):active,
+#wrapper input:not([type="checkbox"]):focus{
+	border: 1px solid rgba(91, 90, 90, 0.7);
+	background: rgba(238, 236, 240, 0.2);	
+	box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+}
+
+#wrapper select:active,
+#wrapper select:focus{
+	border: 1px solid rgba(91, 90, 90, 0.7);
+	background: rgba(238, 236, 240, 0.2);	
+	box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+}
+
+@font-face {
+    font-family: 'FontomasCustomRegular';
+    src: url('fonts/fontomas-webfont.eot');
+    src: url('fonts/fontomas-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/fontomas-webfont.woff') format('woff'),
+         url('fonts/fontomas-webfont.ttf') format('truetype'),
+         url('fonts/fontomas-webfont.svg#FontomasCustomRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/** the magic icon trick ! **/
+[data-icon]:after{
+    content: attr(data-icon);
+    font-family: 'FontomasCustomRegular';
+    color: rgb(106, 159, 171);
+    position: absolute;
+    left: 10px;
+    top: 35px;
+	width: 30px;
+} 
+
+
+
+#register{
+	top: 0px;
+	width: 100%;	
+	padding: 18px 6% 60px 6%;
+	margin: 0 0 35px 0;
+	background: rgb(247, 247, 247);
+	border: 1px solid rgba(147, 184, 189,0.8);
+	box-shadow:	
+		0pt 2px 5px rgba(105, 108, 109,  0.7),	
+		0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	border-radius: 5px;
+}
+
+
+@keyframes "bannermove" {
+ 0% {
+    margin-left: 0px;
+ }
+ 100% {
+    margin-left: -2125px;
+ }
+ 
+}
+ 
+@-moz-keyframes bannermove {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+ 
+}
+ 
+@-webkit-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+ 
+}
+ 
+@-ms-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+ 
+}
+ 
+@-o-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+ 
