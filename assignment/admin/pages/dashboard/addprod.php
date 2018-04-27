@@ -45,7 +45,7 @@ if (isset($_POST['addprod']))
 	//if there are no errors save it to database
 	if (count($errors) == 0){
 		
-		$sql = "INSERT INTO product (product_id, product_name, product_description, product_sku, product_quantity, product_allegery_info, product_price, product_image_path) VALUES (10, '$name','$desc','$sku', '$quantity', '$allergy', '$price', '$img_src')";
+		$sql = "INSERT INTO product (product_id, product_name, product_description, product_sku, product_quantity, product_allegery_info, product_price, product_image_path) VALUES (prod_seq.nextval, '$name','$desc','$sku', '$quantity', '$allergy', '$price', '$img_src')";
 		
 		$result = oci_parse($connection,$sql);
 		
@@ -129,10 +129,9 @@ if (isset($_POST['addprod']))
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-          <li><a href="../../pages/dashboard/data.php"><i class="fa fa-table"></i> Data tables</a></li>
-          <li><a href="../../pages/dashboard/addevent.php"><i class="fa fa-edit"></i> Add event</a></li>
-          	<li><a href="../../pages/dashboard/adduser.php"><i class="fa fa-edit"></i> Add user</a></li>	
-<li><a href="../../pages/dashboard/update.php"><i class="fa fa-edit"></i> Update/Delete event</a></li>	
+          <li><a href="../../pages/dashboard/data.php"><i class="fa fa-table"></i> Data tables</a></li><li><a href="../../pages/dashboard/addprod.php"><i class="fa fa-edit"></i> Add product</a></li>
+          		
+<li><a href="../../pages/dashboard/updateprod.php"><i class="fa fa-edit"></i> Update/Delete product</a></li>	
 
         </ul>
     </section>
@@ -168,7 +167,7 @@ if (isset($_POST['addprod']))
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputName">Name</label>
-                  <input type="text" class="form-control" id="exampleInputName" placeholder="Enter nam" name="name">
+                  <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name" name="name">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputDescription">Description</label>
@@ -214,7 +213,7 @@ if (isset($_POST['addprod']))
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2017 <a href="">ESports Now</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2018 <a href="">Bronte Shops</a>.</strong> All rights
     reserved.
   </footer>
 

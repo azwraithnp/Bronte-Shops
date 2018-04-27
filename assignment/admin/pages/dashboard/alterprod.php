@@ -2,24 +2,26 @@
 include ('../../connection2.php');
 include ('imageupload.php');
 
-	$eid = 10;
+if(isset($_GET['id']))
+{
+	$eid = $_GET['id'];
 	$detail = "SELECT * FROM product WHERE product_id = $eid";
 	$detailqry = oci_parse($connection, $detail);
 	oci_execute($detailqry);
 	while($row = oci_fetch_assoc($detailqry)){
                         $name = $row['PRODUCT_NAME'];
-						$desc = $row['product_description'];
-						$sku = $rcow['product_sku'];
-						$quantity = $row['quantity'];
-						$allergy = $row['allergy'];
-						$price = $row['product_price'];
-						$special_price = $row['product_special_price'];
-						$special_from = $row['product_special_from'];
-						$special_to = $row['product_special_to'];
-						$status = $row['status'];
-						$featured = $row['featured'];
+						$desc = $row['PRODUCT_DESCRIPTION'];
+						$sku = $row['PRODUCT_SKU'];
+						$quantity = $row['PRODUCT_QUANTITY'];
+						$allergy = $row['PRODUCT_ALLEGERY_INFO'];
+						$price = $row['PRODUCT_PRICE'];
+						$special_price = $row['PRODUCT_SPECIAL_PRICE'];
+						$special_from = $row['PRODUCT_SPECIAL_FROM'];
+						$special_to = $row['PRODUCT_SPECIAL_TO'];
+						$status = $row['PRODUCT_STATUS'];
+						$featured = $row['PRODUCT_FEATURED'];
 	}
-	
+}
 
 if (isset($_POST['updateprod'])) 
 {
@@ -65,9 +67,9 @@ if (isset($_POST['updateprod']))
 	}
 	//if there are no errors save it to database
 	if (count($errors) == 0){
-		$sql = "INSERT INTO product (product_name, product_description, product_sku, product_quantity, product_allergy_info, product_price, product_special_price, product_special_from, product_special_to, product_status, product_featured, product_image_path) VALUES ('$name','$desc', '$sku', '$quantity', '$allergy', '$price', $special_price', '$special_from', '$special_to', '$status', '$featured', $img_src')";
+		$sql = "UPDATE PRODUCT SET PRODUCT_NAME = '$name', PRODUCT_DESCRIPTION='$desc', PRODUCT_SKU = '$sku', PRODUCT_QUANTITY=$quantity, PRODUCT_ALLEGERY_INFO = '$allergy', PRODUCT_PRICE = $price, PRODUCT_SPECIAL_PRICE=$special_price, PRODUCT_SPECIAL_FROM = '$special_from', PRODUCT_SPECIAL_TO = '$special_to', PRODUCT_STATUS = '$status', PRODUCT_FEATURED = '$featured', PRODUCT_IMAGE_PATH = '$img_src' WHERE PRODUCT_ID = $eid";
 		
-		$result = oci_parse($conn,$sql);
+		$result = oci_parse($connection,$sql);
 		
 		oci_execute($result);	
 		
@@ -151,9 +153,9 @@ if (isset($_POST['updateprod']))
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
           <li><a href="../../pages/dashboard/data.php"><i class="fa fa-table"></i> Data tables</a></li>
-          <li><a href="../../pages/dashboard/addevent.php"><i class="fa fa-edit"></i> Add event</a></li>
-          	<li><a href="../../pages/dashboard/adduser.php"><i class="fa fa-edit"></i> Add user</a></li>	
-<li><a href="../../pages/dashboard/update.php"><i class="fa fa-edit"></i> Update/Delete event</a></li>	
+          <li><a href="../../pages/dashboard/addprod.php"><i class="fa fa-edit"></i> Add product</a></li>
+          		
+<li><a href="../../pages/dashboard/updateprod.php"><i class="fa fa-edit"></i> Update/Delete product</a></li>	
 
         </ul>
     </section>
@@ -189,43 +191,43 @@ if (isset($_POST['updateprod']))
               <div class="box-body">
 			 <div class="form-group">
                   <label for="exampleInputName">Name</label>
-                  <input type="text" class="form-control" id="exampleInputName" placeholder="<?php echo $name?>" name="name">
+                  <input type="text" class="form-control" id="exampleInputName" value="<?php echo $name?>" name="name" >
                 </div>
                 <div class="form-group">
                   <label for="exampleInputDescription">Description</label>
-                  <input type="text" class="form-control" id="exampleInputDescription" placeholder="<?php echo $desc?>" name="desc">
+                  <input type="text" class="form-control" id="exampleInputDescription" value="<?php echo $desc?>" name="desc">
                 </div>
                	 <div class="form-group">
                   <label for="exampleInputSKU">SKU</label>
-                  <input type="text" class="form-control" id="exampleInputSKU" placeholder="<?php echo $sku?>" name="sku">
+                  <input type="text" class="form-control" id="exampleInputSKU" value="<?php echo $sku?>" name="sku">
                 </div>
                	 <div class="form-group">
                   <label for="exampleInputQuantity">Quantity</label>
-                  <input type="text" class="form-control" id="exampleInputQuantity" placeholder="<?php echo $quantity?>" name="quantity">
+                  <input type="number" class="form-control" id="exampleInputQuantity" value="<?php echo $quantity?>" name="quantity">
                 </div>
                	 <div class="form-group">
                   <label for="exampleInputAllergy">Allergy Info</label>
-                  <input type="text" class="form-control" id="exampleInputAllergy" placeholder="<?php echo $allergy?>" name="allergy">
+                  <input type="text" class="form-control" id="exampleInputAllergy" value="<?php echo $allergy?>" name="allergy">
                 </div>
                <div class="form-group">
                   <label for="exampleInputPrice">Price</label>
-                  <input type="text" class="form-control" id="exampleInputPrice" placeholder="<?php echo $price?>" name="price">
+                  <input type="number" class="form-control" id="exampleInputPrice" value="<?php echo $price?>" name="price">
                 </div>
 				<div class="form-group">
                   <label for="exampleInputSpecialPrice">Special Price</label>
-                  <input type="text" class="form-control" id="exampleInputSpecialPrice" placeholder="<?php echo $special_price?>" name="special_price">
+                  <input type="number" class="form-control" id="exampleInputSpecialPrice" value ="<?php echo $special_price?>" name="special_price">
                 </div>
 				<div class="form-group">
                   <label for="exampleInputFrom">Special Price From</label>
-                  <input type="text" class="form-control" id="exampleInputForm" placeholder="<?php echo $special_from?>" name="from">
+                  <input type="text" class="form-control" id="exampleInputForm" value="<?php echo $special_from?>" name="from">
                 </div>
 				<div class="form-group">
                   <label for="exampleInputTo">Special Price To</label>
-                  <input type="text" class="form-control" id="exampleInputTo" placeholder="<?php echo $special_to?>" name="to">
+                  <input type="text" class="form-control" id="exampleInputTo" value="<?php echo $special_to?>" name="to">
                 </div>
 				<div class="form-group">
                   <label for="exampleInputStatus">Status</label>
-                   <select class="form-control" id="exampleInputStatus" placeholder="Status" name="status" value="<?php echo $status?>">
+                   <select class="form-control" id="exampleInputStatus" name="status" value="<?php echo $status?> ">
                   	<option>On</option>
                     <option>Off</option>
                     </select>
@@ -233,7 +235,7 @@ if (isset($_POST['updateprod']))
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFeatured">Featured</label>
-                   <select class="form-control" id="exampleInputFeatured" placeholder="Featured" name="featured" value="<?php echo $featured?>">
+                   <select class="form-control" id="exampleInputFeatured" name="featured" value="<?php echo $featured?>">
                   	<option>Yes</option>
                     <option>No</option>
                     </select>
@@ -265,7 +267,7 @@ if (isset($_POST['updateprod']))
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2017 <a href="">ESports Now</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2018 <a href="">Bronte Shops</a>.</strong> All rights
     reserved.
   </footer>
 

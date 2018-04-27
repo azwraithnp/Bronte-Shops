@@ -1,12 +1,13 @@
 <?php
 include ('imageupload.php');
-include ('../../connection.php');
+include ('../../connection2.php');
 
 if(isset($_GET['id'])){
     	$eid = $_GET['id'];
-      $details = "DELETE FROM event WHERE eventid = '$eid'";
-   		 $detailqry = mysqli_query($conn, $details); 
-		header("location:update.php");
+      $details = "DELETE FROM product WHERE product_id = '$eid'";
+   		 $detailqry = oci_parse($connection, $details);
+		 oci_execute($detailqry); 
+		header("location:updateprod.php");
 		 
   }
 
@@ -84,9 +85,9 @@ if(isset($_GET['id'])){
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
           <li><a href="../../pages/dashboard/data.php"><i class="fa fa-table"></i> Data tables</a></li>
-          <li><a href="../../pages/dashboard/addevent.php"><i class="fa fa-edit"></i> Add event</a></li>
-          	<li><a href="../../pages/dashboard/adduser.php"><i class="fa fa-edit"></i> Add user</a></li>	
-            <li><a href="../../pages/dashboard/update.php"><i class="fa fa-edit"></i> Update/Delete event</a></li>	
+          <li><a href="../../pages/dashboard/addprod.php"><i class="fa fa-edit"></i> Add product</a></li>
+          		
+<li><a href="../../pages/dashboard/updateprod.php"><i class="fa fa-edit"></i> Update/Delete product</a></li>	
         </ul>
     </section>
     <!-- /.sidebar -->
@@ -110,12 +111,13 @@ if(isset($_GET['id'])){
 
       <div class="row">
         <?php
-	include ('../../connection.php');
-	$detail = "SELECT * FROM event";
-	$detailqry = mysqli_query($conn, $detail);
-	while($row = mysqli_fetch_array($detailqry)){
-                        $url = "../../../".$row['image'];
-						$id = $row['eventid'];
+	include ('../../connection2.php');
+	$detail = "SELECT * FROM product";
+	$detailqry = oci_parse($connection, $detail);
+	oci_execute($detailqry);
+	while($row = oci_fetch_array($detailqry)){
+                        $url = "../../../".$row['PRODUCT_IMAGE_PATH'];
+						$id = $row['PRODUCT_ID'];
 						?>
 
         <div class="col-md-3">
@@ -127,11 +129,11 @@ if(isset($_GET['id'])){
             
               <img class="profile-user-img img-responsive img-circle" src="<?php echo $url;?>">
 
-              <h3 class="profile-username text-center"><?php echo $row['title']; ?></h3>
+              <h3 class="profile-username text-center"><?php echo $row['PRODUCT_NAME']; ?></h3>
 
               
-              <?php echo "<a class='btn btn-primary btn-block' href='alterevent.php?id=".$row['eventid']."'"?><b>Update</b></a>
-              <?php echo "<a class='btn btn-primary btn-block' href='?id=".$row['eventid']."'"?><b>Delete</b></a>
+              <?php echo "<a class='btn btn-primary btn-block' href='alterprod.php?id=".$row['PRODUCT_ID']."'"?><b>Update</b></a>
+              <?php echo "<a class='btn btn-primary btn-block' href='?id=".$row['PRODUCT_ID']."'"?><b>Delete</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -146,7 +148,7 @@ if(isset($_GET['id'])){
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2017 <a href="">ESports Now</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2018 <a href="">Bronte Shops</a>.</strong> All rights
     reserved.
   </footer>
 

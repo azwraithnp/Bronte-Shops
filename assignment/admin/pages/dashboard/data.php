@@ -1,7 +1,8 @@
 <?php
-include ('../../connection.php');
-$detail="SELECT * FROM user";
-$detailqry = mysqli_query($conn, $detail);
+include ('../../connection2.php');
+$detail="SELECT * FROM product";
+$detailqry = oci_parse($connection, $detail);
+oci_execute($detailqry);
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@ $detailqry = mysqli_query($conn, $detail);
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ENBackEnd | Dashboard</title>
+  <title>ENBackEnd | Datatable</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -78,9 +79,8 @@ $detailqry = mysqli_query($conn, $detail);
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
           <li><a href="../../pages/dashboard/data.php"><i class="fa fa-table"></i> Data tables</a></li>
-		  <li><a href="../../pages/dashboard/addevent.php"><i class="fa fa-edit"></i> Add event</a></li>    
-          	<li><a href="../../pages/dashboard/adduser.php"><i class="fa fa-edit"></i> Add user</a></li>	    
-		<li><a href="../../pages/dashboard/update.php"><i class="fa fa-edit"></i> Update/Delete event</a></li>	
+		  <li><a href="../../pages/dashboard/addprod.php"><i class="fa fa-edit"></i> Add product</a></li>        
+		<li><a href="../../pages/dashboard/updateprod.php"><i class="fa fa-edit"></i> Update/Delete product</a></li>	
         </ul>
     </section>
     <!-- /.sidebar -->
@@ -114,41 +114,45 @@ $detailqry = mysqli_query($conn, $detail);
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Age</th>
-                  <th>Email</th>
-                  <th>Password</th>
-                  <th>is Admin</th>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Product Description</th>
+                  <th>Product SKU</th>
+                  <th>Product Price</th>
+                  <th>Product Quantity</th>
+                  <th>Product Allergy Info</th>
+                  <th>Product Status</th>
+                  
                 </tr>
                 </thead>
                 <tbody>
                 	<?php 
-                    	while($row = mysqli_fetch_array($detailqry)){
+                    	while($row = oci_fetch_array($detailqry)){
                         ?>
                         
                 <tr>
-                  <td><?php echo $row['id'];?></td>
-                  <td><?php echo $row['fname'];?></td>
-                  <td><?php echo $row['lname'];?></td>
-                  <td><?php echo $row['age'];?></td>
-                  <td><?php echo $row['email'];?></td>
-                  <td><?php echo $row['password'];?></td>
-                  <td><?php echo $row['isAdmin'];?></td>
+                  <td><?php echo $row['PRODUCT_ID'];?></td>
+                  <td><?php echo $row['PRODUCT_NAME'];?></td>
+                  <td><?php echo $row['PRODUCT_DESCRIPTION'];?></td>
+                  <td><?php echo $row['PRODUCT_SKU'];?></td>
+                  <td><?php echo $row['PRODUCT_PRICE'];?></td>
+                  <td><?php echo $row['PRODUCT_QUANTITY'];?></td>
+                  <td><?php echo $row['PRODUCT_ALLEGERY_INFO'];?></td>
+                  <td><?php echo $row['PRODUCT_STATUS'];?></td>
                 </tr>
                 <?php }?>
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>ID</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Age</th>
-                  <th>Email</th>
-                  <th>Password</th>
-                  <th>is Admin</th>
-                </tr>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Product Description</th>
+                  <th>Product SKU</th>
+                  <th>Product Price</th>
+                  <th>Product Quantity</th>
+                  <th>Product Allergy Info</th>
+                  <th>Product Status</th>
+                   </tr>
                 </tfoot>
               </table>
             </div>
@@ -156,48 +160,7 @@ $detailqry = mysqli_query($conn, $detail);
           </div>
           <!-- /.box -->
 
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Event Data Table</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Category</th>
-                                  </tr>
-                </thead>
-                <tbody>
-                	<?php
-						$detail1 = "SELECT * from event";
-						$detailqry1 = mysqli_query($conn, $detail1);
-                    	while($row = mysqli_fetch_array($detailqry1)){
-                        ?>
-                        
-                <tr>
-                  <td><?php echo $row['eventid'];?></td>
-                  <td><?php echo $row['title'];?></td>
-                  <td><?php echo $row['description'];?></td>
-                  <td><?php echo $row['category'];?></td>
-                </tr>
-                <?php }?>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID</th>
-                  <th>Title</th>
-                  <th>Description</th>
-                  <th>Category</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
+         
           <!-- /.box -->
 
 
@@ -213,7 +176,7 @@ $detailqry = mysqli_query($conn, $detail);
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2017 <a href="">ESports Now</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2018 <a href="">Bronte Shops</a>.</strong> All rights
     reserved.
   </footer>
 
